@@ -1,51 +1,64 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+
 	<title>Manpasand Pass</title>
 	<style>
 		body {
 			background-color: #fff;
 			font-family: Arial, sans-serif;
 		}
+
 		.ticket {
+			background-color: #c1d2ee4f;
 			border-radius: 10px;
 			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 			margin: 50px auto;
-			max-width: 400px;
+			max-width: 600px;
 			padding: 20px;
 			text-align: center;
 		}
+
 		.ticket h1 {
 			color: rgb(0, 0, 0);
-			font-size: 24px;
+			font-size: 42px;
 			margin: 0;
 			padding: 0;
 		}
+
 		.ticket p {
 			color: #000;
-			font-size: 16px;
+			font-size: 32px;
 			margin: 10px 0;
 			padding: 0;
 		}
+
 		.ticket .icon {
 			border-radius: 50%;
 			display: inline-block;
-			height: 50px;
+			height: 100px;
 			line-height: 50px;
 			margin: 0 10px;
 			text-align: center;
-			width: 50px;
+			width: 100px;
 		}
+
+		#demo {
+			color: #4285f4;
+		}
+
 		.ticket .price {
 			color: rgb(0, 0, 0);
-			font-size: 24px;
+			font-size: 48px;
 			font-weight: bold;
 			margin: 0;
 			padding: 0;
 		}
+
 		.ticket .expired {
 			color: rgb(0, 0, 0);
-			font-size: 16px;
+			font-size: 32px;
 			font-weight: bold;
 			margin: 10px 0;
 			padding: 0;
@@ -54,92 +67,134 @@
 
 
 
-    .ticketp {
+		.ticketp {
 			background-color: #fff;
 			border-radius: 10px;
-      border: 1px solid gray;
-      margin: 50px auto;
-			max-width: 400px;
+			border: 1px solid gray;
+			margin: 50px auto;
+			max-width: 600px;
 			padding: 20px;
 		}
+
 		.ticketp h1 {
 			color: #000;
-			font-size: 24px;
+			font-size: 48px;
 			margin: 0;
 			padding: 0;
 			font-weight: bold;
 		}
+
 		.ticketp p {
 			color: #000;
-			font-size: 16px;
+			font-size: 32px;
 			margin: 10px 0;
 			padding: 0;
 		}
-		.amts{
-      font-weight: bold;
-    }
+
+		.amts {
+			font-weight: bold;
+		}
+
 		.ticketp .order {
 			color: #000;
-			font-size: 16px;
+			font-size: 32px;
 			margin: 10px 0;
 			padding: 0;
 			font-weight: bold;
 		}
-    .copy{
-      color: #4285f4;
-    }
+
+		.copy {
+			color: #4285f4;
+		}
+
 		.ticketp .note {
 			color: #000;
-			font-size: 14px;
+			font-size: 28px;
 			margin: 10px 0;
 			padding: 0;
 		}
 
 
 
-    .ticketm {
+		.ticketm {
 			background-color: #fff;
 			border-radius: 10px;
-      border: 1px solid gray;
-      margin: 50px auto;
-			max-width: 400px;
+			border: 1px solid gray;
+			margin: 50px auto;
+			max-width: 600px;
 			padding: 20px;
 		}
+
 		.ticketm h1 {
 			color: #000;
-			font-size: 24px;
+			font-size: 48px;
 			margin: 0;
 			padding: 0;
 			font-weight: bold;
 		}
+
 		.ticketm p {
 			color: #000;
-			font-size: 16px;
+			font-size: 32px;
 			margin: 10px 0;
 			padding: 0;
 			text-align: left;
 		}
-    .total{
-      font-weight: bold;
-    }
+
+		.total {
+			font-weight: bold;
+		}
+
 		.ticketm .order {
 			color: #000;
-			font-size: 16px;
+			font-size: 32px;
 			margin: 10px 0;
 			padding: 0;
 			text-align: left;
 		}
-		
 	</style>
+
+	<script>
+		// Set the date we're counting down to
+		var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
+
+		// Update the count down every 1 second
+		var x = setInterval(function () {
+
+			// Get today's date and time
+			var now = new Date().getTime();
+
+			// Find the distance between now and the count down date
+			var distance = countDownDate - now;
+
+			// Time calculations for days, hours, minutes and seconds
+			var days = Math.floor(distance / (1000 * 60 * 60 * 12));
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 12)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 12)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+			// Display the result in the element with id="demo"
+			document.getElementById("demo").innerHTML = hours + "h "
+				+ minutes + "m " + seconds + "s ";
+
+			// If the count down is finished, write some text
+			if (distance < 0) {
+				clearInterval(x);
+				document.getElementById("demo").innerHTML = "EXPIRED";
+			}
+		}, 1000);
+	</script>
 </head>
+
 <body>
 	<div class="ticket">
-    <img  class="icon" src="amys.png" alt="">
+		<img class="icon" src="amys.png" alt="">
 
-    <h1>Manpasand Pass</h1>
+		<h1>Manpasand Pass</h1>
 		<p>1 Adult Pass</p>
 		<p class="price">₹45</p>
-		<p class="expired">TICKET EXPIRED<br><br>21 Sep 2023, 11:10 AM</p>
+		<p id="demo"></p>
+		<p class="expired">21 Sep 2023, 11:10 AM</p>
 	</div>
 
 	<div class="ticketp">
@@ -147,22 +202,30 @@
 		<p>OPERATOR</p>
 		<p><span class="amts">AMTS</span></p><br>
 		<p>BUS NUMBER</p>
-		<p><span class="amts">All Bus Access</span></p><br><br><hr>
+		<p><span class="amts">All Bus Access</span></p><br><br>
+		<hr>
 		<p class="order">Order ID: 22013338035 <span class="copy">copy</span></p>
 		<p class="note">For any queries regarding Pass, please contact AMTS with Order Id.</p>
 	</div>
 
 
-  <div class="ticketm">
+	<div class="ticketm">
 		<h1>Payment Details</h1><br>
 		<p>FARE BREAKUP</p><br>
-		<p><span class="total">1 X Adult <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₹45</span></span></p>
-    <hr>
-		<p><span class="total">Total <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₹45</span></span></p>
-    <hr>
+		<p><span class="total">1 X Adult
+				<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₹45</span></span>
+		</p>
+		<hr>
+		<p><span class="total">Total
+				<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₹45</span></span>
+		</p>
+		<hr>
 		<p>PAYMENT MODE</p>
-		<p class="total"><span>Indian Bank UPI Linked Bank<span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₹45</span><br>Account</span></p>
+		<p class="total"><span>Indian Bank UPI Linked
+				Bank<span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₹45</span><br>Account</span>
+		</p>
 		<p class="order">Transaction ID: 326455036015</p>
 	</div>
 </body>
+
 </html>
